@@ -3,16 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      term: '',
+      animals: ['dog', 'beta fish', 'cat', 'lion', 'dolphin', 'shark', 'guinea pig'],
+    }
+  }
+
+  handleChange(term) {
+    this.setState({ term });
+  }
+
   render() {
+    let displayAnimals = this.state.animals.filter(animal => animal.includes(this.state.term));
+    const allAnimals = displayAnimals.map(animal => <h2>{ animal }</h2>)
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input onChange={ e => this.handleChange(e.target.value) }/>
+        { allAnimals }
       </div>
     );
   }
