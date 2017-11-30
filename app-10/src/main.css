@@ -1,0 +1,19 @@
+.allProducts, .product, .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product {
+  border: 1px solid #CCC;
+  margin: 15px;
+  padding: 15px;
+  width: 450px;
+}
+.nostyle {
+  text-decoration: none;
+  color: black;
+}
+img {
+  width: 200px;
+  height: auto;
+}
